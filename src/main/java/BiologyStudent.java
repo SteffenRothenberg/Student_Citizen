@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class BiologyStudent implements Citizen {
+public class BiologyStudent extends Student  implements Citizen {
 
     public int identityCardNumber;
     public String address;
@@ -8,9 +8,13 @@ public class BiologyStudent implements Citizen {
     public BiologyStudent(){      //DEFAULT CONSTRUCTOR
 
     }
-    public BiologyStudent(int identityCardNumber, String address){
+    public BiologyStudent(int identityCardNumber, String address, String name){               //CONSTRUCTOR (all args[arguments] constructor)
+        super(name);
         this.address = address;
         this.identityCardNumber = identityCardNumber;
+    }
+    public String areaOfExpertise() {
+        return "Biology";
     }
 
     public int getIdentityCardNumber(int idNumber) {
@@ -29,12 +33,14 @@ public class BiologyStudent implements Citizen {
         this.address = address;
     }
 
+    public String getNameAndAddress(){
+        return name + address;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BiologyStudent that = (BiologyStudent) o;
+        if (!(o instanceof BiologyStudent that)) return false;
+        if (!super.equals(o)) return false;
 
         if (identityCardNumber != that.identityCardNumber) return false;
         return Objects.equals(address, that.address);
@@ -42,7 +48,8 @@ public class BiologyStudent implements Citizen {
 
     @Override
     public int hashCode() {
-        int result = identityCardNumber;
+        int result = super.hashCode();
+        result = 31 * result + identityCardNumber;
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
@@ -52,6 +59,7 @@ public class BiologyStudent implements Citizen {
         return "BiologyStudent{" +
                 "identityCardNumber=" + identityCardNumber +
                 ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

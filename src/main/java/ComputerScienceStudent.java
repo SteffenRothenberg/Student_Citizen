@@ -1,15 +1,18 @@
 import java.util.Objects;
 
-public class ComputerScienceStudent implements Citizen {
+public class ComputerScienceStudent extends Student implements Citizen {
 
     public int identityCardNumber;
     public String address;
-    public ComputerScienceStudent(){      //DEFAULT CONSTRUCTOR
-
+    public ComputerScienceStudent(){                //DEFAULT CONSTRUCTOR
     }
-    public ComputerScienceStudent(int identityCardNumber, String address){
+    public ComputerScienceStudent(int identityCardNumber, String address, String name){   //CONSTRUCTOR (all args[arguments] constructor)
+        super(name);
         this.address = address;
         this.identityCardNumber = identityCardNumber;
+    }
+    public String areaOfExpertise() {
+        return "ComputerScience";
     }
 
     public int getIdentityCardNumber(int idNumber) {
@@ -28,26 +31,33 @@ public class ComputerScienceStudent implements Citizen {
         this.address = address;
     }
 
+    public String getNameAndAddress(){
+        return name + address;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ComputerScienceStudent that = (ComputerScienceStudent) o;
+        if (!(o instanceof ComputerScienceStudent that)) return false;
+        if (!super.equals(o)) return false;
 
         if (identityCardNumber != that.identityCardNumber) return false;
-        return Objects.equals(address, that.address);
+        return address.equals(that.address);
     }
 
     @Override
     public int hashCode() {
-        int result = identityCardNumber;
-        result = 31 * result + (address != null ? address.hashCode() : 0);
+        int result = super.hashCode();
+        result = 31 * result + identityCardNumber;
+        result = 31 * result + address.hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "ComputerScienceStudent{" + "identityCardNumber=" + identityCardNumber + ", address='" + address + '\'' + '}';
+        return "ComputerScienceStudent{" +
+                "identityCardNumber=" + identityCardNumber +
+                ", address='" + address + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
