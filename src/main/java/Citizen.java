@@ -1,6 +1,6 @@
 interface Citizen {
-    String getAddress(String addressStudent);
+    String getAddress();
 
-    int getIdentityCardNumber(int idNumber);
+    int getIdentityCardNumber();
 
 }

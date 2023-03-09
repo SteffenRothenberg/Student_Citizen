@@ -17,19 +17,19 @@ public class BiologyStudent extends Student  implements Citizen {
         return "Biology";
     }
 
-    public int getIdentityCardNumber(int idNumber) {
+    public int getIdentityCardNumber() {
         return identityCardNumber;
     }
 
-    public void setIdentityCardNumber(int identityCardNumber) {
+    public void setIdentityCardNumber() {
         this.identityCardNumber = identityCardNumber;
     }
 
-    public String getAddress(String addressStudent) {
+    public String getAddress() {
         return address ;
     }
 
-    public void setAddress(String address) {
+    public void setAddress() {
         this.address = address;
     }
 
