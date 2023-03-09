@@ -19,5 +19,7 @@ public class Main {
                 System.out.println(expertiseTestOne.areaOfExpertise());
                 Student expertiseTestTwo = new ComputerScienceStudent();
                 System.out.println(expertiseTestTwo.areaOfExpertise());
+                System.out.println(expertiseTestOne.areaOfExpertise());
+                System.out.println(expertiseTestTwo.areaOfExpertise());
         }
 }
