@@ -21,5 +21,6 @@ public class Main {
                 System.out.println(expertiseTestTwo.areaOfExpertise());
                 System.out.println(expertiseTestOne.areaOfExpertise());
                 System.out.println(expertiseTestTwo.areaOfExpertise());
+                System.out.println(expertiseTestOne.getName());
         }
 }
